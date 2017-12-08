@@ -7,7 +7,7 @@ TODO
 - [ ] Check and handle unstable state.
 - [ ] Add basic patterns
 
-#Firebase deploy
+### Firebase deploy
 ```
 #firebase login --no-localhost
 #firebase init
