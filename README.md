@@ -6,3 +6,11 @@ TODO
 ----------------------------------------
 - [ ] Check and handle unstable state.
 - [ ] Add basic patterns
+
+#Firebase deploy
+```
+#firebase login --no-localhost
+#firebase init
+firebase deploy --only hosting
+```
+[Demo](https://game-of-life-7b915.firebaseapp.com)
