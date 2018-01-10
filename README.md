@@ -11,8 +11,8 @@ A [demo](https://game-of-life-67201.firebaseapp.com) is running on [Firebase](ht
 * [ ] Add a couple of basic patterns
 
 ### Firebase deploy
-```
-#firebase login --no-localhost
-#firebase init
+```bash
+firebase init
+firebase login --no-localhost
 firebase deploy --only hosting
 ```
