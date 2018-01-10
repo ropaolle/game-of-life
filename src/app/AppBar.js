@@ -15,6 +15,9 @@ const styles = theme => ({
   flex: {
     flex: 1,
   },
+  icon: {
+    color: '#fff',
+  },
 });
 
 class ButtonAppBar extends Component {
@@ -25,14 +28,14 @@ class ButtonAppBar extends Component {
         <AppBar position="static">
           <Toolbar>
             {/* Menu */}
-            <IconButton color="contrast"><MenuIcon /></IconButton>
+            <IconButton color="contrast" ><MenuIcon /></IconButton>
             {/* Title */}
             <Typography type="title" color="inherit" className={classes.flex}>
               Game of Life with React
             </Typography>
             {/* User menu */}
             <IconButton>
-              <AccountCircleIcon />
+              <AccountCircleIcon className={classes.icon} />
             </IconButton>
           </Toolbar>
         </AppBar>
