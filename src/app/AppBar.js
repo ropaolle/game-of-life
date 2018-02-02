@@ -5,7 +5,6 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
-import AccountCircleIcon from 'material-ui-icons/AccountCircle';
 import MenuIcon from 'material-ui-icons/Menu';
 
 const styles = theme => ({
@@ -33,10 +32,7 @@ class ButtonAppBar extends Component {
             <Typography type="title" color="inherit" className={classes.flex}>
               Game of Life with React
             </Typography>
-            {/* User menu */}
-            <IconButton>
-              <AccountCircleIcon className={classes.icon} />
-            </IconButton>
+            <img src="./favicon-32x32.png" alt="logo" />
           </Toolbar>
         </AppBar>
       </header>
