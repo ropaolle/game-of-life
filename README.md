@@ -9,10 +9,3 @@ A [demo](https://game-of-life-67201.firebaseapp.com) is running on [Firebase](ht
 ### TODO
 * [ ] Detect and handle unstable states.
 * [ ] Add a couple of basic patterns
-
-### Firebase deploy
-```bash
-firebase init
-firebase login --no-localhost
-firebase deploy --only hosting
-```
