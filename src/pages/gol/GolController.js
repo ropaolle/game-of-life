@@ -40,12 +40,12 @@ class GolController extends Component {
     this.state = {
       width: 401,
       height: 401,
-      cols: 10,
-      rows: 10,
-      grid: getPopulation(10, 10),
+      cols: 20,
+      rows: 20,
+      grid: getPopulation(20, 20),
       run: false,
-      delay: true,
-      size: 0,
+      delay: false,
+      size: 2,
       noMoreMoves: false,
       generation: 0,
     };
