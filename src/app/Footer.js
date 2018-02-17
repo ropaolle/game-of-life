@@ -4,10 +4,16 @@ import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 
 const styles = () => ({
-  text: {
+  left: {
+    display: 'inline-box',
+  },
+  right: {
     display: 'inline-box',
     float: 'right',
-    paddingTop: 17,
+  },
+  text: {
+    lineHeight: '35px',
+    marginRight: 6,
   },
 });
 
@@ -15,8 +21,11 @@ function Footer(props) {
   const { classes } = props;
   return (
     <footer>
-      <img className={classes.icon} src="./favicon-32x32.png" alt="logo" />
-      <Typography type="body1" className={classes.text}>RopaOlle 2017 (<a href="https://github.com/ropaolle/game-of-life">Github.com</a>)</Typography>
+      <Typography type="body1" className={classes.left}>By <b>RopaOlle</b><br /><a href="https://github.com/ropaolle/game-of-life">Github.com</a></Typography>
+      <div className={classes.right}>
+        <Typography className={classes.text} type="body1" >Game of Life 2018</Typography>
+        <img src="./favicon-32x32.png" alt="logo" />
+      </div>
     </footer>
   );
 }

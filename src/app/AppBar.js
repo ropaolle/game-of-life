@@ -4,8 +4,8 @@ import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui-icons/Menu';
+// import IconButton from 'material-ui/IconButton';
+// import MenuIcon from 'material-ui-icons/Menu';
 
 const styles = theme => ({
   root: {
@@ -13,9 +13,7 @@ const styles = theme => ({
   },
   flex: {
     flex: 1,
-  },
-  icon: {
-    color: '#fff',
+    marginLeft: theme.spacing.unit * 1,
   },
 });
 
@@ -26,13 +24,10 @@ class ButtonAppBar extends Component {
       <header className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            {/* Menu */}
-            <IconButton color="contrast" ><MenuIcon /></IconButton>
-            {/* Title */}
-            <Typography type="title" color="inherit" className={classes.flex}>
+            <img src="./favicon-32x32.png" alt="logo" />
+            <Typography variant="title" color="inherit" className={classes.flex}>
               Game of Life with React
             </Typography>
-            <img src="./favicon-32x32.png" alt="logo" />
           </Toolbar>
         </AppBar>
       </header>
