@@ -21,14 +21,14 @@ header {
 
   /* sticky footer */
   box-sizing: border-box;
-  margin-bottom: -100px;
+  margin-bottom: -80px;
   padding-bottom: 135px;
   padding-top: 100px;
 }
 
 footer {
   box-sizing: border-box;
-  height: 100px;
+  height: 80px;
   background-color: #eee;
   border-top: 1px solid #e0e0e0;
   padding: 25px 25px;

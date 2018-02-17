@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Typography from 'material-ui/Typography';
+import Tooltip from 'material-ui/Tooltip';
 import { withStyles } from 'material-ui/styles';
 import IconButton from 'material-ui/IconButton';
 import PlayArrowIcon from 'material-ui-icons/PlayArrow';
@@ -39,12 +40,12 @@ class GolController extends Component {
     this.state = {
       width: 401,
       height: 401,
-      cols: 10,
-      rows: 10,
-      grid: getPopulation(10, 10),
+      cols: 20,
+      rows: 20,
+      grid: getPopulation(20, 20),
       run: false,
-      delay: true,
-      size: 0,
+      delay: false,
+      size: 2,
       noMoreMoves: false,
       generation: 0,
     };
@@ -153,11 +154,21 @@ class GolController extends Component {
     return (
       <div className={classes.content}>
         <div>
-          <IconButton className={classes.button} onClick={this.handleRun} aria-label="Play"><PlayArrowIcon /></IconButton>
-          <IconButton className={classes.button} onClick={this.handleNext} aria-label="Step"><SkipNextIcon /></IconButton>
-          <IconButton className={classes.button} onClick={this.handleStop} aria-label="Stop"><StopIcon /></IconButton>
-          <IconButton className={classes.button} onClick={this.handleReset} aria-label="Delete"><DeleteIcon /></IconButton>
-          <IconButton className={classes.button} onClick={this.handleRandom} aria-label="Shuffle"><ShuffleIcon /></IconButton>
+          <Tooltip title="Play">
+            <IconButton color="primary" className={classes.button} onClick={this.handleRun} aria-label="Play"><PlayArrowIcon /></IconButton>
+          </Tooltip>
+          <Tooltip title="Next generation">
+            <IconButton className={classes.button} onClick={this.handleNext} aria-label="Step"><SkipNextIcon /></IconButton>
+          </Tooltip>
+          <Tooltip title="Stop">
+            <IconButton className={classes.button} onClick={this.handleStop} aria-label="Stop"><StopIcon /></IconButton>
+          </Tooltip>
+          <Tooltip title="Reset generation">
+            <IconButton className={classes.button} onClick={this.handleReset} aria-label="Clear"><DeleteIcon /></IconButton>
+          </Tooltip>
+          <Tooltip title="Create reandom generation">
+            <IconButton color="primary" className={classes.button} onClick={this.handleRandom} aria-label="Shuffle"><ShuffleIcon /></IconButton>
+          </Tooltip>
         </div>
         <Typography type="body1" gutterBottom>Generation {generation} {noMoreMoves ? ' (No more moves)' : ''}</Typography>
         <div className={classes.grid}>
@@ -174,6 +185,7 @@ class GolController extends Component {
             <FormControlLabel
               control={
                 <Switch
+                  color="primary"
                   checked={this.state.delay}
                   onChange={(event, checked) => this.handleDelay(checked)}
                 />
