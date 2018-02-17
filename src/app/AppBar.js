@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
@@ -14,8 +15,8 @@ const styles = theme => ({
   },
 });
 
-const ButtonAppBar = () => {
-  const { classes } = this.props;
+const ButtonAppBar = (props) => {
+  const { classes } = props;
   return (
     <header className={classes.root}>
       <AppBar position="static">
@@ -28,6 +29,10 @@ const ButtonAppBar = () => {
       </AppBar>
     </header>
   );
+};
+
+ButtonAppBar.propTypes = {
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(ButtonAppBar);
