@@ -59,6 +59,15 @@ class GolController extends Component {
     this.handleSize = this.handleSize.bind(this);
   }
 
+  componentWillMount() {
+    const width = (window.innerWidth > 610) ? 601 : window.innerWidth - ((window.innerWidth - 10) % 50) - 9;
+    this.setState({ height: width, width });
+  }
+
+  componentDidMount() {
+    this.handleRandom();
+  }
+
   componentWillUpdate(nextProps, nextState) {
     const { delay, run } = this.state;
     if (nextState.run !== run) {
@@ -130,7 +139,7 @@ class GolController extends Component {
     const rowIndex = Math.floor(rows - ((height - e.nativeEvent.offsetY) / (height / rows)));
     const gridIndex = colIndex + (rowIndex * cols);
     this.setState((prevState) => {
-      const newGrid = prevState.grid.slice(0); // Clone array
+      const newGrid = prevState.grid.slice(0);
       newGrid[gridIndex] = (prevState.grid[gridIndex]) ? 0 : 1;
       return {
         grid: newGrid,
@@ -167,7 +176,7 @@ class GolController extends Component {
             <IconButton className={classes.button} onClick={this.handleReset} aria-label="Clear"><DeleteIcon /></IconButton>
           </Tooltip>
           <Tooltip title="Create reandom generation">
-            <IconButton color="primary" className={classes.button} onClick={this.handleRandom} aria-label="Shuffle"><ShuffleIcon /></IconButton>
+            <IconButton /* color="primary" */ className={classes.button} onClick={this.handleRandom} aria-label="Shuffle"><ShuffleIcon /></IconButton>
           </Tooltip>
         </div>
         <Typography type="body1" gutterBottom>Generation {generation} {noMoreMoves ? ' (No more moves)' : ''}</Typography>
@@ -190,7 +199,7 @@ class GolController extends Component {
                   onChange={(event, checked) => this.handleDelay(checked)}
                 />
               }
-              label={(this.state.delay) ? 'Use delay' : 'Full speed'}
+              label="Use delay"
             />
           </FormControl>
           <FormControl>

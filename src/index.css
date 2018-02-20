@@ -22,8 +22,8 @@ header {
   /* sticky footer */
   box-sizing: border-box;
   margin-bottom: -80px;
-  padding-bottom: 135px;
-  padding-top: 100px;
+  padding-bottom: 95px;
+  padding-top: 80px;
 }
 
 footer {

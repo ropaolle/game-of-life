@@ -23,7 +23,7 @@ const ButtonAppBar = (props) => {
         <Toolbar>
           <img src="./favicon-32x32.png" alt="logo" />
           <Typography variant="title" color="inherit" className={classes.flex}>
-              Game of Life with React
+              Game of Life
           </Typography>
         </Toolbar>
       </AppBar>
