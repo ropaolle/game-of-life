@@ -14,6 +14,21 @@ header {
   right: 0;
   left: 0;
   z-index: 2;
+  background-color: #3f51b5;
+  padding: 10px 25px;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  color: #f7f7f7;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+header span {
+  margin-left: 10px;
 }
 
 #content {
@@ -26,10 +41,37 @@ header {
   padding-top: 80px;
 }
 
+h4 {
+  margin-bottom: 0.6em;
+  margin-top: 1em;
+}
+
+.grid-content {
+  text-align: center;
+}
+
+.form-group {
+  align-items: center;
+  justify-content: center;
+}
+
 footer {
   box-sizing: border-box;
   height: 80px;
   background-color: #eee;
   border-top: 1px solid #e0e0e0;
   padding: 25px 25px;
+  display: flex;
+  font-size: 0.8em;
+  white-space: pre-wrap;
+  justify-content: space-between;
+}
+
+footer div {
+  display: flex;
+  align-items: center;
+}
+
+footer img {
+  width: 24px;
 }

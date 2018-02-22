@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
 
 export function drawGrid(ctx, cols, rows, clearCanvas = true, gridColor = '#DDDDDD', bgColor = '#FFFFFF') {
   if (clearCanvas) {
@@ -41,12 +40,6 @@ export function drawPopulation(ctx, population, cols, rows, cellColor = '#FF0000
   });
 }
 
-const styles = theme => ({
-  root: {
-    margin: theme.spacing.unit * 0,
-  },
-});
-
 class GolGrid extends Component {
   componentDidMount() {
     const ctx = this.canvas.getContext('2d');
@@ -68,10 +61,8 @@ class GolGrid extends Component {
   }
 
   render() {
-    const { classes } = this.props;
     return (
       <canvas
-        className={classes.root}
         ref={(c) => { this.canvas = c; }}
         width={this.props.width}
         height={this.props.height}
@@ -81,7 +72,6 @@ class GolGrid extends Component {
 }
 
 GolGrid.propTypes = {
-  classes: PropTypes.object.isRequired,
   grid: PropTypes.arrayOf(PropTypes.number),
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
@@ -99,4 +89,4 @@ GolGrid.defaultProps = {
   gridColor: '#DDDDDD',
 };
 
-export default withStyles(styles)(GolGrid);
+export default GolGrid;
