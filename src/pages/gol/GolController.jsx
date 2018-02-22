@@ -60,7 +60,8 @@ class GolController extends Component {
   }
 
   componentWillMount() {
-    const width = (window.innerWidth > 610) ? 601 : window.innerWidth - ((window.innerWidth - 10) % 50) - 9;
+    const width =
+      window.innerWidth > 610 ? 601 : window.innerWidth - ((window.innerWidth - 10) % 50) - 9;
     this.setState({ height: width, width });
   }
 
@@ -89,14 +90,16 @@ class GolController extends Component {
   }
 
   handleNext() {
-    if (this.state.noMoreMoves) { return; }
+    if (this.state.noMoreMoves) {
+      return;
+    }
     this.setState((prevState) => {
       const nextGen = getPopulation(prevState.rows, prevState.cols, prevState.grid);
       const noMoreMoves = compare(nextGen, prevState.grid);
       return {
         grid: nextGen,
         noMoreMoves,
-        run: (noMoreMoves) ? false : prevState.run,
+        run: noMoreMoves ? false : prevState.run,
         generation: prevState.generation + 1,
       };
     });
@@ -140,10 +143,10 @@ class GolController extends Component {
     const gridIndex = colIndex + (rowIndex * cols);
     this.setState((prevState) => {
       const newGrid = prevState.grid.slice(0);
-      newGrid[gridIndex] = (prevState.grid[gridIndex]) ? 0 : 1;
+      newGrid[gridIndex] = prevState.grid[gridIndex] ? 0 : 1;
       return {
         grid: newGrid,
-        generation: (prevState.generation === 0) ? 1 : prevState.generation,
+        generation: prevState.generation === 0 ? 1 : prevState.generation,
       };
     });
   }
@@ -164,28 +167,45 @@ class GolController extends Component {
       <div className={classes.content}>
         <div>
           <Tooltip title="Play">
-            <IconButton color="primary" className={classes.button} onClick={this.handleRun} aria-label="Play"><PlayArrowIcon /></IconButton>
+            <IconButton
+              color="primary"
+              className={classes.button}
+              onClick={this.handleRun}
+              aria-label="Play"
+            >
+              <PlayArrowIcon />
+            </IconButton>
           </Tooltip>
           <Tooltip title="Next generation">
-            <IconButton className={classes.button} onClick={this.handleNext} aria-label="Step"><SkipNextIcon /></IconButton>
+            <IconButton className={classes.button} onClick={this.handleNext} aria-label="Step">
+              <SkipNextIcon />
+            </IconButton>
           </Tooltip>
           <Tooltip title="Stop">
-            <IconButton className={classes.button} onClick={this.handleStop} aria-label="Stop"><StopIcon /></IconButton>
+            <IconButton className={classes.button} onClick={this.handleStop} aria-label="Stop">
+              <StopIcon />
+            </IconButton>
           </Tooltip>
           <Tooltip title="Reset generation">
-            <IconButton className={classes.button} onClick={this.handleReset} aria-label="Clear"><DeleteIcon /></IconButton>
+            <IconButton className={classes.button} onClick={this.handleReset} aria-label="Clear">
+              <DeleteIcon />
+            </IconButton>
           </Tooltip>
           <Tooltip title="Create reandom generation">
-            <IconButton /* color="primary" */ className={classes.button} onClick={this.handleRandom} aria-label="Shuffle"><ShuffleIcon /></IconButton>
+            <IconButton
+              /* color="primary" */ className={classes.button}
+              onClick={this.handleRandom}
+              aria-label="Shuffle"
+            >
+              <ShuffleIcon />
+            </IconButton>
           </Tooltip>
         </div>
-        <Typography type="body1" gutterBottom>Generation {generation} {noMoreMoves ? ' (No more moves)' : ''}</Typography>
+        <Typography type="body1" gutterBottom>
+          Generation {generation} {noMoreMoves ? ' (No more moves)' : ''}
+        </Typography>
         <div className={classes.grid}>
-          <span
-            className={classes.gridWrapper}
-            onClick={this.handleClick}
-            role="presentation"
-          >
+          <span className={classes.gridWrapper} onClick={this.handleClick} role="presentation">
             <GolComponent {...this.state} />
           </span>
         </div>

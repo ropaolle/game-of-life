@@ -1,6 +1,6 @@
 {
-  "name": "game-of-life",
-  "version": "1.0.0",
+  "name": "gol",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "material-ui": "^1.0.0-beta.34",
@@ -8,7 +8,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "^1.1.1"
+    "react-scripts": "1.1.1"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
@@ -19,39 +19,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "airbnb",
-      "plugin:react/recommended"
-    ],
-    "env": {
-      "es6": true,
-      "browser": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 6,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "plugins": [
-      "react"
-    ],
-    "rules": {
-      "react/forbid-prop-types": 0,
-      "max-len": 0,
-      "react/jsx-filename-extension": [
-        1,
-        {
-          "extensions": [
-            ".js",
-            ".jsx"
-          ]
-        }
-      ]
-    }
-  }
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
