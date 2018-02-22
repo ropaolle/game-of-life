@@ -1,35 +1,5 @@
-html, body, #root, #app-wrapper {
-  height: 100%;
-}
-
 body {
   margin: 0;
   padding: 0;
-}
-
-header {
-  /* Sticky header */
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 2;
-}
-
-#content {
-  min-height: 100%;
-
-  /* sticky footer */
-  box-sizing: border-box;
-  margin-bottom: -80px;
-  padding-bottom: 95px;
-  padding-top: 80px;
-}
-
-footer {
-  box-sizing: border-box;
-  height: 80px;
-  background-color: #eee;
-  border-top: 1px solid #e0e0e0;
-  padding: 25px 25px;
+  font-family: sans-serif;
 }

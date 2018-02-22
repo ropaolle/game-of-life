@@ -15,13 +15,16 @@ const styles = () => ({
     lineHeight: '35px',
     marginRight: 6,
   },
+  bold: {
+    fontWeight: 500,
+  },
 });
 
 function Footer(props) {
   const { classes } = props;
   return (
     <footer>
-      <Typography type="body1" className={classes.left}>By <b>RopaOlle</b><br /><a href="https://github.com/ropaolle/game-of-life">Github.com</a></Typography>
+      <Typography type="body1" className={classes.left}>By <span className={classes.bold}>RopaOlle</span><br /><a href="https://github.com/ropaolle/game-of-life">Github.com</a></Typography>
       <div className={classes.right}>
         <Typography className={classes.text} type="body1" >Game of Life 2018</Typography>
         <img src="./favicon-32x32.png" alt="logo" />
