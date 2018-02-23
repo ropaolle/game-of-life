@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export function drawGrid(ctx, cols, rows, clearCanvas = true, gridColor = '#DDDDDD', bgColor = '#FFFFFF') {
+const CELL_COLOR = '#00CC00';
+const BG_COLOR = '#FFFFFF';
+const GRID_COLOR = '#DDDDDD';
+
+export function drawGrid(ctx, cols, rows, clearCanvas = true) {
   if (clearCanvas) {
-    ctx.fillStyle = bgColor;
+    ctx.fillStyle = BG_COLOR;
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   }
 
@@ -19,44 +23,43 @@ export function drawGrid(ctx, cols, rows, clearCanvas = true, gridColor = '#DDDD
     ctx.moveTo(0, y);
     ctx.lineTo(ctx.canvas.height, y);
   }
-  ctx.strokeStyle = gridColor;
+  ctx.strokeStyle = GRID_COLOR;
   ctx.stroke();
 }
 
-export function drawPopulation(ctx, population, cols, rows, cellColor = '#FF0000', bgColor = '#FFFFFF') {
+export function drawPopulation(ctx, population, cols, rows) {
   const w = Math.floor(ctx.canvas.width / cols);
   const h = Math.floor(ctx.canvas.height / rows);
 
   population.forEach((val, i) => {
+    if (val < 0) return;
+
+    ctx.fillStyle = (val === 0) ? BG_COLOR : CELL_COLOR;
+
     const colIndex = i % cols;
     const rowIndex = Math.floor(i / cols);
-    if (val === 1) {
-      ctx.fillStyle = cellColor;
-      ctx.fillRect((colIndex * w) + 1, (rowIndex * h) + 1, w - 1, h - 1);
-    } if (val === 0) {
-      ctx.fillStyle = bgColor;
-      ctx.fillRect((colIndex * w) + 1, (rowIndex * h) + 1, w - 1, h - 1);
-    }
+    ctx.fillRect((colIndex * w) + 1, (rowIndex * h) + 1, w - 1, h - 1);
   });
 }
 
 class GolGrid extends Component {
   componentDidMount() {
     const ctx = this.canvas.getContext('2d');
-    const { cols, rows, gridColor, bgColor } = this.props;
-    drawGrid(ctx, cols, rows, true, gridColor, bgColor);
+    const { cols, rows } = this.props;
+    drawGrid(ctx, cols, rows, true);
   }
 
   componentDidUpdate(prevProps) {
     const ctx = this.canvas.getContext('2d');
-    const { grid, cols, rows, width, cellColor, bgColor, gridColor } = this.props;
+    const { grid, cols, rows, width } = this.props;
+
     // Set all unchanged cells to -1. drawPopulation only draws cells with a value of 0 or 1.
     const gridDiff = grid.map((val, i) => ((val === prevProps.grid[i]) ? -1 : val));
 
     if (cols !== prevProps.cols || rows !== prevProps.rows || width !== prevProps.width) {
-      drawGrid(ctx, cols, rows, true, gridColor, bgColor);
+      drawGrid(ctx, cols, rows, true);
     } else {
-      drawPopulation(ctx, gridDiff, cols, rows, cellColor, bgColor);
+      drawPopulation(ctx, gridDiff, cols, rows);
     }
   }
 
@@ -77,16 +80,10 @@ GolGrid.propTypes = {
   height: PropTypes.number.isRequired,
   cols: PropTypes.number.isRequired,
   rows: PropTypes.number.isRequired,
-  cellColor: PropTypes.string,
-  bgColor: PropTypes.string,
-  gridColor: PropTypes.string,
 };
 
 GolGrid.defaultProps = {
   grid: [],
-  cellColor: '#00CC00',
-  bgColor: '#FFFFFF',
-  gridColor: '#DDDDDD',
 };
 
 export default GolGrid;
