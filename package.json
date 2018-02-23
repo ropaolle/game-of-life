@@ -1,7 +1,11 @@
 {
   "name": "game-of-life",
   "version": "1.1.0",
-  "private": true,
+  "description": "Game of Life with React",
+  "author": "Ropaolle <ropaolle@gmail.com>",
+  "license": "MIT",  
+  "homepage": "https://ropaolle.github.io/game-of-life",
+  "main": "index.js",
   "dependencies": {
     "material-ui": "^1.0.0-beta.34",
     "material-ui-icons": "^1.0.0-beta.17",
@@ -24,10 +28,5 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-  },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "homepage": "https://ropaolle.github.io/game-of-life",
-  "main": "index.js",
-  "author": "",
-  "license": "ISC"
+  }
 }

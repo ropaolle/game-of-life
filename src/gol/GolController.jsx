@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Switch from 'material-ui/Switch';
 import { FormControlLabel, FormControl, FormGroup } from 'material-ui/Form';
 import Select from 'material-ui/Select';
@@ -135,7 +134,7 @@ class GolController extends Component {
   }
 
   render() {
-    const { generation, noMoreMoves } = this.state;
+    const { generation, noMoreMoves, delay, run, size } = this.state;
 
     return (
       <div className="grid-content">
@@ -148,9 +147,7 @@ class GolController extends Component {
           handleRandom={this.handleRandom}
         />
 
-        <h4>
-          Generation {generation} {noMoreMoves ? ' (No more moves)' : ''}
-        </h4>
+        <h4>Generation {generation} {noMoreMoves ? ' (No more moves)' : ''}</h4>
 
         <div>
           <span onClick={this.handleClick} role="presentation">
@@ -164,7 +161,7 @@ class GolController extends Component {
               control={
                 <Switch
                   color="primary"
-                  checked={this.state.delay}
+                  checked={delay}
                   onChange={(event, checked) => this.handleDelay(checked)}
                 />
               }
@@ -173,12 +170,7 @@ class GolController extends Component {
           </FormControl>
 
           <FormControl>
-            <Select
-              native
-              disabled={this.state.run}
-              value={this.state.size}
-              onChange={this.handleSize}
-            >
+            <Select native disabled={run} value={size} onChange={this.handleSize}>
               <option value={1}>10 x 10</option>
               <option value={2}>20 x 20</option>
               <option value={5}>50 x 50</option>
@@ -191,9 +183,5 @@ class GolController extends Component {
     );
   }
 }
-
-GolController.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default GolController;

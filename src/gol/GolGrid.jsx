@@ -6,6 +6,8 @@ const BG_COLOR = '#FFFFFF';
 const GRID_COLOR = '#DDDDDD';
 
 export function drawGrid(ctx, cols, rows, clearCanvas = true) {
+  if (!ctx) return;
+
   if (clearCanvas) {
     ctx.fillStyle = BG_COLOR;
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -28,6 +30,8 @@ export function drawGrid(ctx, cols, rows, clearCanvas = true) {
 }
 
 export function drawPopulation(ctx, population, cols, rows) {
+  if (!ctx) return;
+
   const w = Math.floor(ctx.canvas.width / cols);
   const h = Math.floor(ctx.canvas.height / rows);
 

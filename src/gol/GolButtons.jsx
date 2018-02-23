@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Tooltip from 'material-ui/Tooltip';
 import IconButton from 'material-ui/IconButton';
 import PlayArrowIcon from 'material-ui-icons/PlayArrow';
@@ -25,6 +26,14 @@ const ButtonList = (props) => {
       {button('Shuffle', 'Create reandom generation', props.handleRandom, <ShuffleIcon />)}
     </div>
   );
+};
+
+ButtonList.propTypes = {
+  handleRun: PropTypes.func.isRequired,
+  handleNext: PropTypes.func.isRequired,
+  handleStop: PropTypes.func.isRequired,
+  handleReset: PropTypes.func.isRequired,
+  handleRandom: PropTypes.func.isRequired,
 };
 
 export default ButtonList;
