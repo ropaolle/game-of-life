@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import Switch from 'material-ui/Switch';
-import { FormControlLabel, FormControl, FormGroup } from 'material-ui/Form';
-import Select from 'material-ui/Select';
-import GolGrid from './GolGrid';
-import GolButtons from './GolButtons';
-import { getPopulation, GOL_RANDOM, compare } from './GolUtils';
+import GolGrid from './Grid';
+import GolButtons from './Buttons';
+import GolSettings from './Settings';
+import { getPopulation, GOL_RANDOM, compare } from './Utils';
 
 class GolController extends Component {
   constructor(props) {
@@ -27,7 +25,7 @@ class GolController extends Component {
     this.handleRun = this.handleRun.bind(this);
     this.handleStop = this.handleStop.bind(this);
     this.handleRandom = this.handleRandom.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleGridClick = this.handleGridClick.bind(this);
     this.handleDelay = this.handleDelay.bind(this);
     this.handleSize = this.handleSize.bind(this);
   }
@@ -109,7 +107,7 @@ class GolController extends Component {
     }
   }
 
-  handleClick(e) {
+  handleGridClick(e) {
     const { width, height, cols, rows } = this.state;
     const colIndex = Math.floor(cols - ((width - e.nativeEvent.offsetX) / (width / cols)));
     const rowIndex = Math.floor(rows - ((height - e.nativeEvent.offsetY) / (height / rows)));
@@ -150,35 +148,18 @@ class GolController extends Component {
         <h4>Generation {generation} {noMoreMoves ? ' (No more moves)' : ''}</h4>
 
         <div>
-          <span onClick={this.handleClick} role="presentation">
+          <span onClick={this.handleGridClick} role="presentation">
             <GolGrid {...this.state} />
           </span>
         </div>
 
-        <FormGroup row className="form-group">
-          <FormControl>
-            <FormControlLabel
-              control={
-                <Switch
-                  color="primary"
-                  checked={delay}
-                  onChange={(event, checked) => this.handleDelay(checked)}
-                />
-              }
-              label="Use delay"
-            />
-          </FormControl>
-
-          <FormControl>
-            <Select native disabled={run} value={size} onChange={this.handleSize}>
-              <option value={1}>10 x 10</option>
-              <option value={2}>20 x 20</option>
-              <option value={5}>50 x 50</option>
-              <option value={10}>100 x 100</option>
-              <option value={20}>200 x 200</option>
-            </Select>
-          </FormControl>
-        </FormGroup>
+        <GolSettings
+          handleDelay={this.handleDelay}
+          handleSize={this.handleSize}
+          delay={delay}
+          run={run}
+          size={size}
+        />
       </div>
     );
   }

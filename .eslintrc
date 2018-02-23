@@ -2,8 +2,10 @@
   "extends": ["airbnb", "plugin:react/recommended"],
   "env": {
     "es6": true,
-    "jest": true,
     "browser": true
+  },
+  "globals": {
+    "it": true
   },
   "plugins": ["react"],
   "rules": {

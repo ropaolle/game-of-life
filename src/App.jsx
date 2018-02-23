@@ -1,5 +1,5 @@
 import React from 'react';
-import GolController from './gol/GolController';
+import GolController from './gol/Controller';
 import './App.css';
 
 const App = () => (

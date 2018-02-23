@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const CELL_COLOR = '#00CC00';
-const BG_COLOR = '#FFFFFF';
+const CELL_COLOR = '#00AA00';
+const BG_COLOR = '#F7F7F7';
 const GRID_COLOR = '#DDDDDD';
 
 export function drawGrid(ctx, cols, rows, clearCanvas = true) {
