@@ -25,11 +25,11 @@ const neighbourOffsets = [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], 
  * Get next generation and return the population.
  */
 export function getNextGeneration(currentGeneration, rows, cols) {
-  return currentGeneration.map((val, i) => {
-    // Count alive neighbors
+  function countAliveNeighbors(i) {
     let aliveNeighbors = 0;
     const colIndex = i % cols;
     const rowIndex = Math.floor(i / cols);
+
     neighbourOffsets.forEach((offset) => {
       const rowOffset = rowIndex + offset[1];
       const colOffset = colIndex + offset[0];
@@ -40,9 +40,13 @@ export function getNextGeneration(currentGeneration, rows, cols) {
       }
     });
 
-    // Check Game of Life rules
-    return getNextCellGeneration(currentGeneration[i], aliveNeighbors);
-  });
+    return aliveNeighbors;
+  }
+
+  // Check Game of Life rules
+  return currentGeneration.map((val, i) =>
+    getNextCellGeneration(currentGeneration[i], countAliveNeighbors(i)),
+  );
 }
 
 /**
