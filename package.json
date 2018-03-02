@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "Game of Life with React",
   "author": "Ropaolle <ropaolle@gmail.com>",
-  "license": "MIT",  
+  "license": "MIT",
   "homepage": "https://ropaolle.github.io/game-of-life",
   "main": "index.js",
   "dependencies": {
