@@ -8,6 +8,7 @@ Demo site at [ropaolle.github.io/game-of-life](https://ropaolle.github.io/game-o
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c589a35dd9af482ebf790b20592a6115)](https://www.codacy.com/app/ropaolle/game-of-life?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ropaolle/game-of-life&amp;utm_campaign=Badge_Grade)
 [![David badge](https://david-dm.org/ropaolle/game-of-life.svg)](https://david-dm.org/ropaolle/game-of-life)
 [![DevDependencies](https://img.shields.io/david/dev/ropaolle/game-of-life.svg)](https://david-dm.org/ropaolle/game-of-life#info=devDependencies&view=list)
+[![NSP Status](https://nodesecurity.io/orgs/ropaolle/projects/7d1a5566-3ccc-4cbc-aab1-816fa8c15e3e/badge)](https://nodesecurity.io/orgs/ropaolle/projects/7d1a5566-3ccc-4cbc-aab1-816fa8c15e3e)
 
 [![Known Vulnerabilities](https://snyk.io/test/github/ropaolle/game-of-life/badge.svg)](https://snyk.io/test/github/ropaolle/game-of-life) 
 
